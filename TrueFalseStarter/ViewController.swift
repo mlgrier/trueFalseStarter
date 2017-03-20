@@ -15,16 +15,18 @@ class ViewController: UIViewController {
     let questionsPerRound = 4
     var questionsAsked = 0
     var correctQuestions = 0
-    var indexOfSelectedQuestion: Int = 0
+    //var indexOfSelectedQuestion: Int = 0
     
     var gameSound: SystemSoundID = 0
     
-    let trivia: [[String : String]] = [
+  /*  let trivia: [[String : String]] = [
         ["Question": "Only female koalas can whistle", "Answer": "False"],
         ["Question": "Blue whales are technically whales", "Answer": "True"],
         ["Question": "Camels are cannibalistic", "Answer": "False"],
         ["Question": "All ducks are birds", "Answer": "True"]
     ]
+ 
+ */
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var trueButton: UIButton!
@@ -45,12 +47,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /*
     func displayQuestion() {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: trivia.count)
         let questionDictionary = trivia[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.isHidden = true
     }
+ */
     
     func displayScore() {
         // Hide the answer buttons
