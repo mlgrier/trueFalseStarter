@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let questionsPerRound = 4
     var questionsAsked = 0
     var correctQuestions = 0
+    let triviaQuestions = TriviaQuestions()
     //var indexOfSelectedQuestion: Int = 0
     
     var gameSound: SystemSoundID = 0
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
         loadGameStartSound()
         // Start game
         playGameStartSound()
-        displayQuestion()
+        questionField.text = triviaQuestions.displayQuestion()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,8 +73,8 @@ class ViewController: UIViewController {
         // Increment the questions asked counter
         questionsAsked += 1
         
-        let selectedQuestionDict = trivia[indexOfSelectedQuestion]
-        let correctAnswer = selectedQuestionDict["Answer"]
+        let selectedQuestionDict = triviaQuestions
+        let correctAnswer = (TriviaQuestions[indexOfSelectedQuestion])
         
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
             correctQuestions += 1

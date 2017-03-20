@@ -19,10 +19,24 @@ struct TriviaQuestions {
         ["Question": "All ducks are birds", "Answer": "True"]
     ]
     
-    func displayQuestion() {
+    func displayQuestion() -> String {
+        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: trivia.count)
+        let questionDictionary = trivia[indexOfSelectedQuestion]
+        return questionDictionary[["Question", "Answer"]]!
+    }
+    
+}
+
+/*
+func randomFact() -> String {
+    let randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: facts.count)
+    return facts[randomNumber]
+
+    func displayQuestion() -> String {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: trivia.count)
         let questionDictionary = trivia[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.isHidden = true
-    }
 }
+ 
+ */
